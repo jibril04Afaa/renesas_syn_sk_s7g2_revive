@@ -1,2 +1,21 @@
-arm-none-eabi-gcc path: C:\Program Files\Arm\GNU Toolchain mingw-w64-x86_64-arm-none-eabi\bin
+# Build artifacts
+/build/
+*.elf
+*.bin
+*.map
 
+# IDE and Editor files
+.vscode/
+.vs/
+*.suo
+*.user
+*.nc
+*.launch
+*.settings/
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
