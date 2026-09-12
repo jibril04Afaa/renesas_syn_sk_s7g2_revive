@@ -1,0 +1,8 @@
+device R7FS7G27C
+si SWD
+speed 4000
+connect
+loadbin build/renesas_s7g2_firmware.bin 0x00000000
+r
+g
+qc
