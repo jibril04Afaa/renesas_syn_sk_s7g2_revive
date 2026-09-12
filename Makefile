@@ -14,7 +14,7 @@ CPU = -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard
 # compiler flags
 CFLAGS = $(CPU) -O0 -g3 -Wall -Wextra -std=gnu11
 CFLAGS += -ffunction-sections -fdata-sections
-CFLAGS += Iinclude -DCM4
+CFLAGS += -Iinclude -DCM4
 CFLAGS += -Idrivers/inc
 
 # assembler flags
@@ -61,7 +61,10 @@ $(BUILD_DIR)/$(TARGET).bin: $(BUILD_DIR)/$(TARGET).elf
 	$(OBJCOPY) -O binary $< $@
 
 $(BUILD_DIR):
-	mkdir -p $(BUILD_DIR)
+	mkdir $(BUILD_DIR)
 
 clean:
-	rm -rf $(BUILD_DIR)
+	@if exist $(BUILD_DIR) rmdir /s /q $(BUILD_DIR)
+
+flash: all
+	JLink.exe -CommanderScript flash.jlink
